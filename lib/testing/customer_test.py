@@ -28,8 +28,8 @@ class TestCustomer:
         assert isinstance(customer.name, str)
 
         # uncomment the next two lines if using Exceptions
-        # with pytest.raises(Exception):
-        #     customer.name = 1
+        with pytest.raises(Exception):
+            customer.name = 1
 
     def test_name_length(self):
         """name is between 1 and 15 characters"""
@@ -37,20 +37,20 @@ class TestCustomer:
         assert len(customer.name) == 5
 
         # comment out the next two lines if using Exceptions
-        customer.name = ""
-        assert customer.name == "Steve"
+        # customer.name = ""
+        # assert customer.name == "Steve"
         
         # comment out the next two lines if using Exceptions
-        customer.name = "TooLongForAName!"
-        assert customer.name == "Steve"
+        # customer.name = "TooLongForAName!"
+        # assert customer.name == "Steve"
 
         # uncomment the next two lines if using Exceptions
-        # with pytest.raises(Exception):
-        #     Customer("TooLongForAName!")
+        with pytest.raises(Exception):
+            Customer("TooLongForAName!")
 
         # uncomment the next two lines if using Exceptions
-        # with pytest.raises(Exception):
-        #     Customer("")
+        with pytest.raises(Exception):
+            Customer("")
 
     def test_has_many_orders(self):
         """customer has many orders"""
@@ -113,7 +113,6 @@ class TestCustomer:
 
         assert isinstance(customer.coffees()[0], Coffee)
         assert isinstance(customer.coffees()[1], Coffee)
-    
     def test_create_order(self):
         """creates a new order for a customer"""
         coffee_1 = Coffee("Vanilla Latte")
